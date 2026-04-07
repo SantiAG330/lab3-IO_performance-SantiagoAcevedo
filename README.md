@@ -16,8 +16,8 @@ El sistema cuenta con dos dispositivos de almacenamiento: un HDD y un SSD NVMe. 
 
 | Parámetro | Valor de Referencia |
 | --- | --- |
-| **Sistema Operativo** | Ej: Ubuntu 22.04 / Windows 11 23H2 |
-| **CPU (Modelo y Núcleos)** | Ej: Intel i5-12400 / 6 núcleos |
-| **Memoria RAM Total** | Ej: 16 GB DDR4 |
-| **Tipo de Disco** | Ej: SSD NVMe PCIe 4.0 |
+| **Sistema Operativo** | Windows 11 25H2 |
+| **CPU (Modelo y Núcleos)** | Intel Core i3-10110U / 2 núcleos |
+| **Memoria RAM Total** | 8 GB DDR4 |
+| **Tipo de Disco** | HDD SATA |
 | **Carga de CPU en Reposo** | Ej: < 5% |
