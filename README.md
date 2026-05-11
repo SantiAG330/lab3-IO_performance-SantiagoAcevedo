@@ -80,3 +80,28 @@ Observe la tabla generada y responda:
 - Respuesta 1: Para los 3 bloques más pequeños, que eran de 4 KB, 16 KB y 64 KB, la lectura aleatoria fue más rápida. Para el bloque más grande, el de 256 KB, el tiempo que tardó la lectura secuencial fue muy similar a la aleatoria, así que ambos patrones rinden parecido.
 - Respuesta 2: Sí, el throughput aumentó mucho a medida que el tamaño de bloque crecía. Los bloques pequeños leen menos datos por cada operación, por lo que tardan más, pero los bloques grandes aprovechan mejor el disco y el throughput se eleva de la misma forma.
 - Respuesta 3: La mayor diferencia entre secuencial y aleatorio en cuestiones de tiempo fue en la prueba con el bloque de 4 KB, pues con el acceso secuencial tardó 1.7997 segundos, mientras que con el aleatorio solo tardó 0.0524 segundos. En cuanto a throughput, la diferencia más grande estuvo también en el caso del bloque de 4 KB, pues el throughput del acceso aleatorio fue de 298.46 MiB/s, mientras que el secuencial fue prácticamente el doble, así que en este caso en específico es mucho más eficiente el acceso secuencial en cuanto a throughput, con la desventaja de que su tiempo también aumentó considerablemente.
+
+## Punto de control 3 — Modelo teórico elegido
+
+Indique cuál dispositivo teórico usó para comparar sus resultados:
+
+- Dispositivo modelado: HDD aproximado.
+- Latencia asumida: 10ms
+- Throughput asumido: 100MB/s
+
+Este modelo es muy similar a mi entorno real, ya que estoy ejecutando estas pruebas en el disco HDD de mi computador, el cual debería tener una latencia y un throughput aproximadamente iguales a los del modelo teórico.
+
+## Análisis comparativo: teoría vs práctica
+
+Interprete la tabla comparativa:
+
+1. ¿Los tiempos empíricos son mayores o menores que los teóricos?
+2. ¿En cuál patrón de acceso la teoría se aproxima mejor?
+3. ¿Qué factores reales podrían explicar las diferencias?
+
+### Respuesta
+
+Comparando los resultados empíricos con los teóricos, se observa que los tiempos medidos en la práctica fueron mucho menores que los estimados por el modelo teórico. Esto indica que el sistema tuvo un mucho mejor desempeño que el esperado, especialmente en los accesos aleatorios, donde la diferencia fue bastante grande.
+El patrón en el que la teoría se aproxima más a la práctica es el acceso secuencial, especialmente en el bloque de 4KB, aunque la diferencia sigue siendo muy notable. En los accesos aleatorios, el modelo teórico se aleja muchísimo más de los valores reales obtenidos.
+
+Estas diferencias se pueden explicar principalmente por la caché del sistema operativo, es decir, el uso de la memoria RAM. Esta influyó bastante, ya que el tamaño del archivo creado es menor que la memoria disponible, lo que hace que muchas lecturas se realicen desde la memoria y no directamente desde el disco, aumentando así la velocidad en los procesos. Además, es posible que la carga del sistema, al ser baja, también brinde más velocidad y afecte los resultados, haciendo que en la práctica todo sea más rápido de lo esperado teóricamente.
